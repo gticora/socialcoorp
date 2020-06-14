@@ -13,31 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*la rutas devuelve un objeto por ende se permite utilizar como un obtejo*/
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/usuarios', function () {
-    return 'usuarios';
-});
-#la rutas devuelve un objeto por ende se permite utilizar como un obtejo
+Route::get('/usuarios', 'UserController@index'); #se apunta la ruta al controlador correspondiente llamando el metodo
 
 #vista mostrar usuarios
-Route::get('/usuarios/{id}', function ($id) {
-    return "Mostrando detalle usuario: {$id}";
-})->where('id', '[0-9]+');
+Route::get('/usuarios/{id}','UserController@show')->where('id', '[0-9]+');#se apunta la ruta al controlador correspondiente llamando el metodo
+
 
 #Vista crear usuarios
-Route::get('/usuarios/nuevo', function () {
-    return "Crear usuario";
-});
+Route::get('/usuarios/nuevo','UserController@create');#se apunta la ruta al controlador correspondiente llamando el metodo
 
-Route::get('/saludo/{name}/{nickname?}', function ($name, $nickname = null) {
-	if($nickname){
-		return "Bienvenido {$name}, tu apodo es {$nickname}";
-	}else{
-		return "Bienvenido {$name}, no tienes apodo";
-	}
-    
-});
+#Vista index
+Route::get('/saludo/{name}/{nickname?}','WelcomeUserController');#se apunta la ruta al controlador correspondiente llamando el metodo
