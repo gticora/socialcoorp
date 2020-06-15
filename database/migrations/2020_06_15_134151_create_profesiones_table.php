@@ -15,7 +15,7 @@ class CreateProfesionesTable extends Migration
     {
         Schema::create('profesiones', function (Blueprint $table) {
             $table->increments('codiprof');
-            $table->string('title',100);
+            $table->string('title',100)->unique();
             $table->timestamps();
         });
     }
