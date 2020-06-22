@@ -24,29 +24,35 @@ class UsuariosSeeder extends Seeder
     	#metodo first se obtiene el primer resultado
     	#metodo value se obtiene el valor de un campo
 
-        Usuarios::create([
-        	'nombres' => 'Gustavo',
-        	'apellidos' => 'Ticora',
+        factory(Usuarios::class)->create([
+            'nombres' => 'Gustavo Adolfo',
         	'email' => 'gusticora@hotmail.com',
         	'password' => bcrypt('12345'), #bcrypt se encripta la contraseña
         	'codiprof' => $profesion,
             'is_admin' => true,
         ]); #metodo para ingresar datos
 
-        Usuarios::create([
-            'nombres' => 'Fernanda',
-            'apellidos' => 'Rueda',
-            'email' => 'fernada@hotmail.com',
-            'password' => bcrypt('12345'), #bcrypt se encripta la contraseña
-            'codiprof' => $profesion,
-        ]); #metodo para ingresar datos
+       factory(Usuarios::class)->create([
+           'codiprof' => $profesion
+       ]);
 
-        Usuarios::create([
-            'nombres' => 'Sergio',
-            'apellidos' => 'Ticora',
-            'email' => 'sandres@hotmail.com',
-            'password' => bcrypt('12345'), #bcrypt se encripta la contraseña
-            'codiprof' => null,
-        ]); #metodo para ingresar datos
+       factory(Usuarios::class, 48)->create();
+
+
+//        Usuarios::create([
+//            'nombres' => 'Fernanda',
+//            'apellidos' => 'Rueda',
+//            'email' => 'fernada@hotmail.com',
+//            'password' => bcrypt('12345'), #bcrypt se encripta la contraseña
+//            'codiprof' => $profesion,
+//        ]); #metodo para ingresar datos//
+
+//        Usuarios::creat|e([
+//           'nombres' => 'Sergio',
+//           'apellidos' => 'Ticora',
+//            'email' => 'sandres@hotmail.com',
+//            'password' => bcrypt('12345'), #bcrypt se encripta la contraseña
+//            'codiprof' => null,
+//        ]); #metodo para ingresar datos
     }
 }

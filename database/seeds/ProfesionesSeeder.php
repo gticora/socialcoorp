@@ -24,5 +24,7 @@ class ProfesionesSeeder extends Seeder
     	Profesiones::create([
     		'title' => 'Administrativos',
     	]);
+
+        factory(Profesiones::class, 17)->create();
     }
 }
